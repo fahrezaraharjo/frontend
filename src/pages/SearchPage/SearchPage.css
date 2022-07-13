@@ -1,0 +1,25 @@
+.searchPage {
+    background-image: url(https://static.vecteezy.com/system/resources/previews/002/949/867/non_2x/abstract-blur-luxury-hotel-lobby-and-lounge-for-background-free-photo.jpg)  ;
+}
+
+.searchPage_info {
+    padding: 20px;
+    
+}
+
+.searchPage_info > p {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.searchPage_info > h1 {
+    margin-bottom: 30px;
+}
+
+.searchPage_info > button {
+    border-radius: 30px;
+    text-transform: inherit;
+    margin: 5px;
+    border: none;
+    color: black;
+}

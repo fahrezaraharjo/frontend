@@ -1,0 +1,90 @@
+.detailsPage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    gap: 5px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-between;
+}
+
+.detail_left {
+    display: flex;
+    width: 50%;
+
+}
+
+.searchResult {
+    top: 0;
+    display: flex;
+    border: 0px solid black;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.75);
+    transition: transform 100ms ease-in;
+    width: fit-content;
+    margin: 10px;
+    padding: 20px;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+
+
+.searchResult_heart {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+
+.searchResult_infoTop {
+    width: 47vw;
+}
+
+.searchResult_infoTop > h3 {
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+.searchResult_infoTop > p {
+    margin-top: 10px;
+    font-size: 13px;
+    color: gray;
+}
+
+.searchResult_infoBottom {
+    display: flex;
+    justify-content: space-between;
+    width: fit-content;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.searchResult_star {
+    color: red;
+}
+
+.searchResult_stars {
+    display: flex;
+    align-items: center;
+}
+
+.searchResult_price > p {
+    text-align: right;
+    top: 0;
+}
+
+.searchResult_price {
+    position: fit-content;
+    bottom: 92px;
+    right: 30px;
+    color: greenyellow;
+}

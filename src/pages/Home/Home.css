@@ -1,0 +1,11 @@
+.home_section {
+    display: flex;
+    padding: 30px;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSesm5rfZH0BLSoKfjU95y_XJZ1ifZIFjICIzR_qZpieO0cGAHftJaAfiSfxuvKedku8X0&usqp=CAU) ;
+
+}
+
+.link {
+    color: black;
+}
+

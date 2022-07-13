@@ -1,0 +1,18 @@
+@media all and (min-width: 480px) {
+  .Login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    background-color: white;
+    z-index: 100;
+    width: 100%;
+    top: 0;
+    height: auto;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}
