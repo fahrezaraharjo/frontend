@@ -46,18 +46,17 @@ function Details(
                     </div>
 
                 </div>
-                {/* <div className='card'> */}
 
-                    <button
-                        onClick={() => setOpenModal(true)}
-                        className='modalButton'>
-                        <div className="viewButton"><MdOutlinePayments />BOOK NOW</div>
+                <button
+                    onClick={() => setOpenModal(true)}
+                    className='modalButton'>
+                    <div className="viewButton"><MdOutlinePayments />BOOK NOW</div>
 
-                    </button>
-                    <Modal
-                        open={openModal}
-                        onClose={() => setOpenModal(false)} />
-                {/* </div> */}
+                </button>
+                <Modal
+                    open={openModal}
+                    onClose={() => setOpenModal(false)} />
+
             </div>
         </div >
     )

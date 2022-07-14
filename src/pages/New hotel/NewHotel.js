@@ -1,13 +1,40 @@
 import React from 'react'
-
+import Axios from 'axios';
 import "./NewHotel.css";
 import SideBar from '../../components/Admin/SideBar/SideBar';
 import NavBar from '../../components/Admin/Navbar/NavBar';
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 
-const New = ({ inputs, title }) => {
-  const [file, setFile] = useState("");
+const New = (props) => {
+  const [name, setName] = useState("")
+  const [cheapestPrice, setCheapestPrice] = useState("")
+  const [file, setFile] = useState("")
+  const CreatePhotoField = useRef()
+
+  async function submitHandler(e) {
+    e.preventDefault()
+    const data = new FormData()
+    data.append("name", nameHotel)
+    data.append("photo", file)
+    data.append("type", type)
+    data.append("city", city)
+    data.append("address", address)
+    data.append("rating", rating)
+    data.append("rooms", rooms)
+    data.append("cheapestPrice", cheapestPrice)
+    data.append("featured", featured)
+    data.append("desc", desc)
+    data.append("distance", distance)
+    data.append("photo", file)
+    data.append("title", title)
+
+    setName("")
+    setSpecies("")
+    setFile("")
+    const newPhoto = await Axios.post("/create-animal", data, { headers: { "Content-Type": "multipart/form-data" } })
+    props.setAnimals(prev => prev.concat([newPhoto.data]))
+  }
 
   return (
     <div className="new">
@@ -29,26 +56,18 @@ const New = ({ inputs, title }) => {
             />
           </div>
           <div className="newright">
-            <form>
-              <div className="newformInput">
-                <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="newicon" />
-                </label>
-                <input
-                  type="file"
-                  id="file"
-                  onChange={(e) => setFile(e.target.files[0])}
-                  style={{ display: "none" }}
-                />
+            <form className="p-3 bg-success bg-opacity-25 mb-5" onSubmit={submitHandler}>
+              <div className="mb-2">
+                <input ref={CreatePhotoField} onChange={e => setFile(e.target.files[0])} type="file" className="form-control" />
+              </div>
+              <div className="mb-2">
+                <input onChange={e => setName(e.target.value)} value={name} type="text" className="form-control" placeholder="Hotel name" />
+              </div>
+              <div className="mb-2">
+                <input onChange={e => setCheapestPrice(e.target.value)} value={cheapestPrice} type="text" className="form-control" placeholder="price" />
               </div>
 
-              {inputs.map((input) => (
-                <div className="newformInput" key={input.id}>
-                  <label>{input.label}</label>
-                  <input type={input.type} placeholder={input.placeholder}  />
-                </div>
-              ))}
-              <button>Send</button>
+              <button className="btn btn-success">Create New Hotels!</button>
             </form>
           </div>
         </div>

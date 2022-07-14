@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import Axios from "axios"
 import "./datatable.css";
 import { DataGrid } from "@mui/x-data-grid";
 import { hotelColumns, hotelRows } from "../../../datatablesource";
@@ -13,7 +13,6 @@ const Datatable = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     getHotels().then(data => {
-      console.log("ieu ti api", data)
       const dataMapping = data.map(item => ({
         Address: item.address,
         Distance: item.distance,
