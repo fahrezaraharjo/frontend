@@ -6,6 +6,9 @@
 .newContainer {
     flex: 6;
 }
+.button_submit {
+    background-color: transparent;
+}
 
 .newtop,
 .newbottom {

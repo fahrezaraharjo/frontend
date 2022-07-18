@@ -4,12 +4,23 @@ import "./NewHotel.css";
 import SideBar from '../../components/Admin/SideBar/SideBar';
 import NavBar from '../../components/Admin/Navbar/NavBar';
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const New = (props) => {
-  const [name, setName] = useState("")
+  const [nameHotel, setName] = useState("")
+  const [type, setType] = useState("")
+  const [city, setCity] = useState("")
+  const [address, setAddress] = useState("")
+  const [rating, setRating] = useState("")
+  const [rooms, setRooms] = useState("")
+  const [featured, setFeatured] = useState("")
+  const [desc, setDesc] = useState("")
   const [cheapestPrice, setCheapestPrice] = useState("")
   const [file, setFile] = useState("")
+  const [distance, setDistance] = useState("")
+  const [title, setTitle] = useState("")
+
+
   const CreatePhotoField = useRef()
 
   async function submitHandler(e) {
@@ -30,8 +41,18 @@ const New = (props) => {
     data.append("title", title)
 
     setName("")
-    setSpecies("")
+    setCheapestPrice("")
     setFile("")
+    setTitle("")
+    setDistance("")
+    setDesc("")
+    setFeatured("")
+    setRooms("")
+    setRating("")
+    setAddress("")
+    setCity("")
+    setType("")
+
     const newPhoto = await Axios.post("/create-animal", data, { headers: { "Content-Type": "multipart/form-data" } })
     props.setAnimals(prev => prev.concat([newPhoto.data]))
   }
@@ -42,7 +63,7 @@ const New = (props) => {
       <div className="newContainer">
         <NavBar />
         <div className="newtop">
-          <h1>{title}</h1>
+          <h1>Create NewHotel</h1>
         </div>
         <div className="newbottom">
           <div className="newleft">
@@ -56,15 +77,36 @@ const New = (props) => {
             />
           </div>
           <div className="newright">
-            <form className="p-3 bg-success bg-opacity-25 mb-5" onSubmit={submitHandler}>
+            <form className="button_submit" onSubmit={submitHandler}>
               <div className="mb-2">
                 <input ref={CreatePhotoField} onChange={e => setFile(e.target.files[0])} type="file" className="form-control" />
               </div>
               <div className="mb-2">
-                <input onChange={e => setName(e.target.value)} value={name} type="text" className="form-control" placeholder="Hotel name" />
+                <input onChange={e => setName(e.target.value)} value={nameHotel} type="text" className="form-control" placeholder="Hotel name" />
               </div>
               <div className="mb-2">
-                <input onChange={e => setCheapestPrice(e.target.value)} value={cheapestPrice} type="text" className="form-control" placeholder="price" />
+                <input onChange={e => setCheapestPrice(e.target.value)} value={cheapestPrice} type="text" className="form-control" placeholder="Price" />
+              </div>
+              <div className="mb-2">
+                <input onChange={e => setTitle(e.target.value)} value={title} type="text" className="form-control" placeholder="Title" />
+              </div>
+              <div className="mb-2">
+                <input onChange={e => setDistance(e.target.value)} value={distance} type="text" className="form-control" placeholder="Distance" />
+              </div>
+              <div className="mb-2">
+                <input onChange={e => setDesc(e.target.value)} value={desc} type="text" className="form-control" placeholder="Description Hotel" />
+              </div>
+              <div className="mb-2">
+                <input onChange={e => setRooms(e.target.value)} value={rooms} type="text" className="form-control" placeholder="Rooms" />
+              </div>
+              <div className="mb-2">
+                <input onChange={e => setAddress(e.target.value)} value={address} type="text" className="form-control" placeholder="Address" />
+              </div>
+              <div className="mb-2">
+                <input onChange={e => setCity(e.target.value)} value={city} type="text" className="form-control" placeholder="City" />
+              </div>
+              <div className="mb-2">
+                <input onChange={e => setType(e.target.value)} value={type} type="text" className="form-control" placeholder="type room" />
               </div>
 
               <button className="btn btn-success">Create New Hotels!</button>
