@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getHotels } from '../../utils/api';
 import './Card.css'
 
-function Card({ id, src, title, description, price }) {
+
+
+function Card(props) {
+  
+
   return (
     <div className='card'>
-      <img src={src} alt="" />
+      <img src={props.photos} alt="" />
       <div className='card_info'>
-        <h2>{id}</h2>
-        <h2>{title}</h2>
-        <h4>{description}</h4>
-        <h3>{price}</h3>
+        <h2>{props.id}</h2>
+        <h2>{props.title}</h2>
+        <h4>{props.description}</h4>
+        <h3>{props.cheapestPrice}</h3>
       </div>
     </div>
   )

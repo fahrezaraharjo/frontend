@@ -11,6 +11,20 @@ import Company from "../../assets/afv.png"
 function Header() {
   const navigate = useNavigate();
 
+  // const [data, setData] = useState();
+  // useEffect(() => {
+  //   handleTextSearch = (e) => {
+  //     const searchTerm = e.currentTarget.value;
+  //     axios.get("/posts").then((res) => {
+  //       if (res.data.success) {
+  //         this.filterContent(res.data.posts, searchTerm);
+  //       }
+  //     });
+  //   };
+  // }, []);
+
+  
+  
   return (
     <div className='header'>
       <Link to="/">
@@ -19,7 +33,13 @@ function Header() {
       </Link>
 
       <div className='header_center'>
-        <input type="text" />
+        <input 
+        type="search"
+        placeholder='search'
+        name='searchTerm'
+        // onChange={this.handleTextSearch}
+        
+        />
         <SearchIcon />
       </div>
 

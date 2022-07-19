@@ -2,7 +2,7 @@ import React from 'react'
 import "./NewHotel.css";
 import SideBar from '../../components/Admin/SideBar/SideBar';
 import NavBar from '../../components/Admin/Navbar/NavBar';
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { addHotel } from '../../utils/api';
 
 const New = (inputs) => {
@@ -167,7 +167,7 @@ const New = (inputs) => {
                     type="file"
                     placeholder="Choose Photo"
                     name="file"
-                    onChange={(e) => handleChange(e)}
+                    onChange={(e) => setFile(e.target.files[0])}
                   />
 
                 </div>

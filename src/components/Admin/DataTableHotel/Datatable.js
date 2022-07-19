@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Axios from "axios"
 import "./datatable.css";
 import { DataGrid } from "@mui/x-data-grid";
 import { hotelColumns, hotelRows } from "../../../datatablesource";
 import { Link } from "react-router-dom";
 import { getHotels } from '../../../utils/api';
 
-console.log(hotelRows)
+
 
 const Datatable = () => {
 

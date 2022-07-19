@@ -25,8 +25,8 @@ const Modal = ({ open, onClose }) => {
             <button className='btnPrimary'>
               <span className='bold'>YES</span>, done
             </button>
-            <button className='btnOutline'>
-              <span className='bold'>NO</span>, close
+            <button className='btnOutline' onClick={onClose}>
+              <span className='bold' >NO</span>,close
             </button>
           </div>
         </div>

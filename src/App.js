@@ -14,11 +14,11 @@ import ListHotel from './pages/List hotel/List';
 import New from './pages/New/New';
 import NewHotel from './pages/New hotel/NewHotel';
 import Singlehotel from './pages/hotels/Single';
-import { productInputs, userInputs, hotelInputs } from "./formSource";
+import {  userInputs, hotelInputs } from "./formSource";
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
 import React from 'react';
 
-import { hotelColumns, roomColumns, userColumns } from "./datatablesource";
+import { hotelColumns, userColumns } from "./datatablesource";
 
 function App() {
   return (
@@ -67,7 +67,7 @@ function App() {
 
           </Route>
           <Route exact path="/Admin" element={<Admin />} />
-          <Route exact path="/Details" element={<Details />} />
+          <Route exact path="/Details/:id" element={<Details />} />
           <Route exact path="/Profile" element={<Profile />} />
           <Route exact path="/Register" element={<Register />} />
           <Route exact path="/Login" element={<Login />} />

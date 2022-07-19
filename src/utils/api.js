@@ -14,6 +14,13 @@ export const getHotels = () =>
         console.log(err)
     })
 
+    export const getHotel = (id) =>
+    request.get(`Hotels/find/${id}`).then((Response) => {
+        return Response.data
+    }).catch(err => {
+        console.log(err)
+    })
+
     export const addHotel = (value) =>
     request.post('Hotels',value).then((Response) => {
         return Response.data

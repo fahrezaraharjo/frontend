@@ -14,11 +14,15 @@
 
 .detail_left {
     display: flex;
-    width: 50%;
-
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.searchResult {
+.searchResult_info {
     top: 0;
     display: flex;
     border: 0px solid black;

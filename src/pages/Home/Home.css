@@ -1,11 +1,15 @@
 .home_section {
     display: flex;
     padding: 30px;
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSesm5rfZH0BLSoKfjU95y_XJZ1ifZIFjICIzR_qZpieO0cGAHftJaAfiSfxuvKedku8X0&usqp=CAU) ;
-
+    background-image: url(https://p4.wallpaperbetter.com/wallpaper/985/136/886/building-lights-illustration-romain-trystram-wallpaper-preview.jpg);
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
-.link {
-    color: black;
+.link_home {
+    color: rgb(75, 75, 75);
 }
-

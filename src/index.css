@@ -111,3 +111,6 @@ img {
    height: max-content;
 }
 
+:link {
+    color: #1f1f38;
+}
