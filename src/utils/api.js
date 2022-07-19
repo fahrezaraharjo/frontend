@@ -14,4 +14,17 @@ export const getHotels = () =>
         console.log(err)
     })
 
+    export const addHotel = (value) =>
+    request.post('Hotels',value).then((Response) => {
+        return Response.data
+    }).catch(err => {
+        console.log(err)
+    })
+
+
+
+
+
+
+
 

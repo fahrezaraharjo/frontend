@@ -1,61 +1,49 @@
 import React from 'react'
-import Axios from 'axios';
 import "./NewHotel.css";
 import SideBar from '../../components/Admin/SideBar/SideBar';
 import NavBar from '../../components/Admin/Navbar/NavBar';
-import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState, useRef } from "react";
+import { addHotel } from '../../utils/api';
 
-const New = (props) => {
-  const [nameHotel, setName] = useState("")
-  const [type, setType] = useState("")
-  const [city, setCity] = useState("")
-  const [address, setAddress] = useState("")
-  const [rating, setRating] = useState("")
-  const [rooms, setRooms] = useState("")
-  const [featured, setFeatured] = useState("")
-  const [desc, setDesc] = useState("")
-  const [cheapestPrice, setCheapestPrice] = useState("")
-  const [file, setFile] = useState("")
-  const [distance, setDistance] = useState("")
-  const [title, setTitle] = useState("")
+const New = (inputs) => {
+  const [file, setFile] = useState("");
+  const [values, setValues] = useState({
+    nameHotel: "",
+    type: "",
+    city: "",
+    address: "",
+    rating: "",
+    // rooms: "",
+    featured: "",
+    desc: "",
+    cheapestPrice: "",
+    file: "",
+    distance: "",
+    title: "",
+  });
+  const handleChange = (event) => {
+    setValues({ ...values, [event.target.name]: event.target.value });
+  };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-  const CreatePhotoField = useRef()
+    const { nameHotel, type, city, address, rating, featured, desc, cheapestPrice, file, distance, title } = values;
+    const { data } = addHotel({
+      nameHotel,
+      type,
+      city,
+      address,
+      rating,
+      featured,
+      desc,
+      cheapestPrice,
+      file,
+      distance,
+      title
+    });
 
-  async function submitHandler(e) {
-    e.preventDefault()
-    const data = new FormData()
-    data.append("name", nameHotel)
-    data.append("photo", file)
-    data.append("type", type)
-    data.append("city", city)
-    data.append("address", address)
-    data.append("rating", rating)
-    data.append("rooms", rooms)
-    data.append("cheapestPrice", cheapestPrice)
-    data.append("featured", featured)
-    data.append("desc", desc)
-    data.append("distance", distance)
-    data.append("photo", file)
-    data.append("title", title)
-
-    setName("")
-    setCheapestPrice("")
-    setFile("")
-    setTitle("")
-    setDistance("")
-    setDesc("")
-    setFeatured("")
-    setRooms("")
-    setRating("")
-    setAddress("")
-    setCity("")
-    setType("")
-
-    const newPhoto = await Axios.post("/create-animal", data, { headers: { "Content-Type": "multipart/form-data" } })
-    props.setAnimals(prev => prev.concat([newPhoto.data]))
-  }
+  };
 
   return (
     <div className="new">
@@ -77,39 +65,117 @@ const New = (props) => {
             />
           </div>
           <div className="newright">
-            <form className="button_submit" onSubmit={submitHandler}>
+            <form action='' className="button_submit" onSubmit={(event) => handleSubmit(event)}>
               <div className="mb-2">
-                <input ref={CreatePhotoField} onChange={e => setFile(e.target.files[0])} type="file" className="form-control" />
+
               </div>
               <div className="mb-2">
-                <input onChange={e => setName(e.target.value)} value={nameHotel} type="text" className="form-control" placeholder="Hotel name" />
+                <input
+                  type="text"
+                  placeholder="Name Hotel"
+                  name="nameHotel"
+                  onChange={(e) => handleChange(e)}
+                />
+
               </div>
               <div className="mb-2">
-                <input onChange={e => setCheapestPrice(e.target.value)} value={cheapestPrice} type="text" className="form-control" placeholder="Price" />
+                <input
+                  type="text"
+                  placeholder="Type"
+                  name="type"
+                  onChange={(e) => handleChange(e)}
+                />
+
               </div>
               <div className="mb-2">
-                <input onChange={e => setTitle(e.target.value)} value={title} type="text" className="form-control" placeholder="Title" />
+                <input
+                  type="text"
+                  placeholder="Address"
+                  name="address"
+                  onChange={(e) => handleChange(e)}
+                />
+
               </div>
               <div className="mb-2">
-                <input onChange={e => setDistance(e.target.value)} value={distance} type="text" className="form-control" placeholder="Distance" />
-              </div>
-              <div className="mb-2">
-                <input onChange={e => setDesc(e.target.value)} value={desc} type="text" className="form-control" placeholder="Description Hotel" />
-              </div>
-              <div className="mb-2">
-                <input onChange={e => setRooms(e.target.value)} value={rooms} type="text" className="form-control" placeholder="Rooms" />
-              </div>
-              <div className="mb-2">
-                <input onChange={e => setAddress(e.target.value)} value={address} type="text" className="form-control" placeholder="Address" />
-              </div>
-              <div className="mb-2">
-                <input onChange={e => setCity(e.target.value)} value={city} type="text" className="form-control" placeholder="City" />
-              </div>
-              <div className="mb-2">
-                <input onChange={e => setType(e.target.value)} value={type} type="text" className="form-control" placeholder="type room" />
+                <input
+                  type="text"
+                  placeholder="Rating"
+                  name="rating"
+                  onChange={(e) => handleChange(e)}
+                />
+
               </div>
 
-              <button className="btn btn-success">Create New Hotels!</button>
+              <div className="mb-2">
+                <input
+                  type="text"
+                  placeholder="Featured"
+                  name="featured"
+                  onChange={(e) => handleChange(e)}
+                />
+
+              </div>
+              <div className="mb-2">
+                <input
+                  type="text"
+                  placeholder="Description"
+                  name="desc"
+                  onChange={(e) => handleChange(e)}
+                />
+
+              </div>
+              <div className="mb-2">
+                <input
+                  type="text"
+                  placeholder="Cheapest Price"
+                  name="cheapestPrice"
+                  onChange={(e) => handleChange(e)}
+                />
+
+
+                <div className="mb-2">
+                  <input
+                    type="text"
+                    placeholder="Distance"
+                    name="distance"
+                    onChange={(e) => handleChange(e)}
+                  />
+
+                </div>
+                <div className="mb-2">
+                  <input
+                    type="text"
+                    placeholder="Title"
+                    name="title"
+                    onChange={(e) => handleChange(e)}
+                  />
+
+                </div>
+
+                <div className="mb-2">
+                  <input
+                    type="text"
+                    placeholder="City"
+                    name="city"
+                    onChange={(e) => handleChange(e)}
+                  />
+
+                </div>
+
+                <div className="mb-2">
+                  <input
+                    type="file"
+                    placeholder="Choose Photo"
+                    name="file"
+                    onChange={(e) => handleChange(e)}
+                  />
+
+                </div>
+
+
+
+                <button type='submit' className="btn btn-success">Create New Hotels!</button>
+              </div>
             </form>
           </div>
         </div>
