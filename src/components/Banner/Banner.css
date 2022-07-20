@@ -1,5 +1,5 @@
 .banner {
-    background: url("https://media.cntraveler.com/photos/5db1d0dd11c1e500092e7133/master/pass/airbnb-ski-aspen-28328347.jpg") center center;
+    background: url("https://img.buzzfeed.com/buzzfeed-static/static/2017-10/26/14/asset/buzzfeed-prod-fastlane-01/sub-buzz-15099-1509041818-1.jpg?downsize=900:*&output-format=auto&output-quality=auto") center center;
     height: 50vh;
     position: relative;
 }
@@ -9,7 +9,7 @@
 
 
 .banner_info {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: linear-gradient(-45deg, #4d4c4c, #5c2c05, #070b0d, #9e3606);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
     
@@ -69,5 +69,5 @@
     background-color: transparent !important;
     font-weight: 900 !important;
     text-decoration: inherit !important;
-    color: #d642e4db !important;
+    color: #5c5b5c !important;
 }

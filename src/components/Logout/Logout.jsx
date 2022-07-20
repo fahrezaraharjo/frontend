@@ -29,11 +29,16 @@ const Button = styled.button`
   align-items: center;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  background-color: #9a86f3;
-  border: none;
+  background-color: #202021;
+  box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.75);
+  transition: transform 120ms ease-in;
   cursor: pointer;
+  border: none;
   svg {
     font-size: 1.3rem;
     color: #ebe7ff;
   }
+  .card:hover {
+    transform: scale(1.07);
+}
 `;

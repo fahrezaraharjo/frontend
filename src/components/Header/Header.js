@@ -17,13 +17,19 @@ function Header() {
   const [item, setItem] = useState({})
 
   useEffect(() => {
-      getHotel(id).then((data) => {
-          console.log('ini dari backend',data)
-          setItem(data)
-      }).catch((err) => {
-          console.log('gagal bro',err)
-      })
+    getHotel(id).then((data) => {
+      console.log('ini dari backend', data)
+      setItem(data)
+    }).catch((err) => {
+      console.log('gagal bro', err)
+    })
   }, [])
+
+  const submitForm = (event) => {
+    event.preventDefault()
+    console.log(searchTerm, "ini searchTerm")
+    navigate('/search', { state: { title: searchTerm ,cheapestPrice: searchTerm } })
+  }
 
   return (
     <div className='header'>
@@ -33,14 +39,16 @@ function Header() {
       </Link>
 
       <div className='header_center'>
-        <input
-          type="search"
-          placeholder='search'
-          name='searchTerm'
-          onChange={event => {setSearchTerm(event.target.value)}}
-        />
-        
-        <SearchIcon />
+        <form onSubmit={submitForm}>
+          <input
+            type="search"
+            placeholder='search'
+            name='searchTerm'
+            onChange={event => { setSearchTerm(event.target.value) }}
+          />
+
+          <button type="submit"><SearchIcon /></button>
+        </form>
       </div>
 
       <div className='header_right'>

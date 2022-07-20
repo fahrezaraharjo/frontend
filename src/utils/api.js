@@ -7,8 +7,8 @@ const request = axios.create({
 });
 
 
-export const getHotels = () =>
-    request.get('Hotels').then((Response) => {
+export const getHotels = (params) =>
+    request.get('Hotels', {params}).then((Response) => {
         return Response.data
     }).catch(err => {
         console.log(err)
@@ -22,6 +22,13 @@ export const getHotels = () =>
     })
 
     export const addHotel = (value) =>
+    request.post('Hotels',value).then((Response) => {
+        return Response.data
+    }).catch(err => {
+        console.log(err)
+    })
+
+    export const updateHotel = (value) =>
     request.post('Hotels',value).then((Response) => {
         return Response.data
     }).catch(err => {

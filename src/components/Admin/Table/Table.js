@@ -23,7 +23,7 @@ const List = () => {
     },
     {
       id: 2235235,
-      product: "aryaduta",
+      product: "Intercontinental Dago",
       img: "https://pix10.agoda.net/hotelImages/124/1246280/1246280_16061017110043391702.jpg?ca=6&ce=1&s=1024x768",
       customer: "fahreza",
       date: "10-11 March",
@@ -33,7 +33,7 @@ const List = () => {
     },
     {
       id: 2342353,
-      product: "melati",
+      product: "artdeco",
       img: "https://pix10.agoda.net/hotelImages/124/1246280/1246280_16061017110043391702.jpg?ca=6&ce=1&s=1024x768",
       customer: "herlan",
       date: "1 March",
@@ -41,26 +41,7 @@ const List = () => {
       method: "Cash on Delivery",
       status: "Pending",
     },
-    {
-      id: 2357741,
-      product: "vue",
-      img: "https://pix10.agoda.net/hotelImages/124/1246280/1246280_16061017110043391702.jpg?ca=6&ce=1&s=1024x768",
-      customer: "faiz",
-      date: "1 March",
-      amount: 920,
-      method: "Online",
-      status: "Approved",
-    },
-    {
-      id: 2342355,
-      product: "artdeco",
-      img: "https://pix10.agoda.net/hotelImages/124/1246280/1246280_16061017110043391702.jpg?ca=6&ce=1&s=1024x768",
-      customer: "siapapun",
-      date: "1 - 4 March",
-      amount: 2000,
-      method: "Online",
-      status: "Pending",
-    },
+    
   ];
   return (
     <TableContainer component={Paper} className="table">

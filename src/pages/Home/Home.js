@@ -3,7 +3,6 @@ import './Home.css'
 import Banner from '../../components/Banner/Banner'
 import Card from '../../components/Card/Card'
 import Logout from "../../components/Logout/Logout";
-import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { getHotels } from '../../utils/api';
 
@@ -14,11 +13,12 @@ function Home() {
   useEffect(() => {
     getHotels().then(data => {
       const dataMapping = data.map(item => (
-        <Link className='link_home' to={`/details/${item._id}`} style={{ textDecoration: "none" }}>
+        <Link key={item._id} className='link_home' to={`/details/${item._id}`} style={{ textDecoration: "none" }}>
           <Card
             photos={item.photos[0]}
             title={item.title}
-            description={item.desc}
+            cheapestPrice={item.cheapestPrice}
+            rating={item.rating}
           />
         </Link>
       ))

@@ -8,7 +8,7 @@ import { addHotel } from '../../utils/api';
 const New = (inputs) => {
   const [file, setFile] = useState("");
   const [values, setValues] = useState({
-    nameHotel: "",
+    name: "",
     type: "",
     city: "",
     address: "",
@@ -28,9 +28,9 @@ const New = (inputs) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const { nameHotel, type, city, address, rating, featured, desc, cheapestPrice, file, distance, title } = values;
+    const { name, type, city, address, rating, featured, desc, cheapestPrice, file, distance, title } = values;
     const { data } = addHotel({
-      nameHotel,
+      name,
       type,
       city,
       address,
@@ -73,7 +73,7 @@ const New = (inputs) => {
                 <input
                   type="text"
                   placeholder="Name Hotel"
-                  name="nameHotel"
+                  name="name"
                   onChange={(e) => handleChange(e)}
                 />
 

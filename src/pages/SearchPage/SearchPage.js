@@ -1,12 +1,41 @@
 import { Button } from '@mui/material'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './SearchPage.css'
 import SearchResult from '../../components/SearchResult/SearchResult'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import { getHotels } from '../../utils/api'
 
 
 
 function SearchPage() {
+  const location = useLocation();
+
+  const { title } = location.state
+
+  const [data, setData] = useState()
+
+  useEffect(() => {
+    getHotels({ title, }).then(data => {
+      console.log('data dari backend', data)
+      const dataMapping = data.map(item => (
+        <Link to={`/Details/${item._id}`} style={{ textDecoration: "none" }} key={item._id}>
+          <SearchResult
+            photos={item.photos}
+            city={item.city}
+            title={item.title}
+            description="1 guest · 1 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Kitchen · Free parking · Washing Machine"
+            star={item.rating}
+            cheapestPrice={item.cheapestPrice}
+            total="£117 total"
+          />
+        </Link>
+      ))
+      setData(dataMapping)
+    })
+  }, [location]);
+
+
+
   return (
     <div className='searchPage'>
       <div className='searchPage_info'>
@@ -28,72 +57,8 @@ function SearchPage() {
           More filters
         </Button>
       </div>
-      <Link to="/Details" style={{ textDecoration: "none" }}>
-        <SearchResult
-          img="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_wbPYTxQPMcBh7SPzLFActXnP3uhifeVT_g&usqp=CAU"
-          location="Private room in center of London"
-          title="Stay at this spacious Edwardian House"
-          description="1 guest · 1 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Kitchen · Free parking · Washing Machine"
-          star={4.73}
-          price="£30 / night"
-          total="£117 total"
-        />
-      </Link>
-      <Link to="/Details" style={{ textDecoration: "none" }}>
-        <SearchResult
-          img="https://www.expatkings.com/wp-content/uploads/2018/10/Airbnb-rental-tips.-Hostmaker-1-620x349.jpg"
-          location="Private room in center of London"
-          title="Independant luxury studio apartment"
-          description="2 guest · 3 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Kitchen"
-          star={4.3}
-          price="£40 / night"
-          total="£157 total"
-        />
-      </Link>
-      <Link to="/Details" style={{ textDecoration: "none" }}>
-      <SearchResult
-        img="https://www.smartertravel.com/uploads/2017/07/Untitled-design-8.jpg"
-        location="Private room in center of London"
-        title="London Studio Apartments"
-        description="4 guest · 4 bedroom · 4 bed · 2 bathrooms · Free parking · Washing Machine"
-        star={3.8}
-        price="£35 / night"
-        total="£207 total"
-      />
-      </Link>
-      <Link to="/Details" style={{ textDecoration: "none" }}>
-      <SearchResult
-        img="https://cdn.bisnow.net/fit?height=489&type=jpeg&url=https%3A%2F%2Fs3.amazonaws.com%2Fcdn.bisnow.net%2Fcontent%2Fimages%2F2017%2F05%2F59151d0978bbf_https_press_atairbnb_com_app_uploads_2016_12_midtown_4.jpeg&width=717&sign=FeltIPi9cOWA36nVIeDvZxwgtiCZrpUyMRdvyZviTUI"
-        location="Private room in center of London"
-        title="30 mins to Oxford Street, Excel London"
-        description="1 guest · 1 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Kitchen · Free parking · Washing Machine"
-        star={4.1}
-        price="£55 / night"
-        total="£320 total"
-      />
-      </Link>
-      <Link to="/Details" style={{ textDecoration: "none" }}>
-      <SearchResult
-        img="https://static.trip101.com/paragraph_media/pictures/001/676/061/large/969ae4bb-efd1-4fb9-a4e3-5cb3316dd3c9.jpg?1562227937"
-        location="Private room in center of London"
-        title="The Blue Room In London"
-        description="2 guest · 1 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Washing Machine"
-        star={4.23}
-        price="£65 / night"
-        total="£480 total"
-      />
-      </Link>
-      <Link to="/Details" style={{ textDecoration: "none" }}>
-      <SearchResult
-        img="https://image.insider.com/585029a0dd0895bc548b4b8b?width=750&format=jpeg&auto=webp"
-        location="Private room in center of London"
-        title="5 Star Luxury Apartment"
-        description="3 guest · 1 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Kitchen · Free parking · Washing Machine"
-        star={3.85}
-        price="£90 / night"
-        total="£650 total"
-      />
-      </Link>
+
+      {data}
     </div>
   )
 }

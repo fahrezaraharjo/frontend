@@ -3,6 +3,7 @@
 .cellWrapper {
     display: flex;
     align-items: center;
+    background-color: transparent;
 }
 
 .image {
@@ -26,3 +27,4 @@
     color: goldenrod;
     background-color: rgba(189, 189, 3, 0.103);
   }
+  

@@ -8,6 +8,10 @@
     
 }
 
+.imageprofile{
+object-fit: cover;
+width: 400px;
+}
 .about__me {
     width: 100%;
     aspect-ratio: 1/1;
@@ -106,3 +110,4 @@
         margin: 1.5rem 0;
     }
 }
+
