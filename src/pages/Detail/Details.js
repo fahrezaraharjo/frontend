@@ -2,16 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './Details.css'
 import Card from '../../components/Card/Card';
 import StarIcon from "@mui/icons-material/Star";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { MdOutlinePayments } from "react-icons/md"
 import Modal from '../../components/modal/modal';
 import { getHotel } from '../../utils/api';
 
-function Details(
-    src,
-    title,
-    description,
-) {
+function Details() {
     let { id } = useParams();
     const [openModal, setOpenModal] = useState(false);
     const [item, setItem] = useState({})
@@ -31,14 +27,14 @@ function Details(
             <div className='detail_left'>
 
                 <Card
-                    photos={item.photos ? item.photos[0] : ''}
+                    photos={item.photos ? item.photos[0] : 'err'}
                     title={item.title}
-                    description={item.desc}
+                   
                 />
 
             </div>
             <div className='searchResult_info'>
-                <div className='card'>
+                
 
                     <div className='searchResult_infoTop'>
                         <p>{item.title}</p>
@@ -55,7 +51,7 @@ function Details(
                     <div className='searchResult_infoBottom'>
                         <h2>Rp {item.cheapestPrice} / Night</h2>
                     </div>
-                </div>
+                
                 <button
                     onClick={() => setOpenModal(true)}
                     className='modalButton'>

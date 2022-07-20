@@ -1,30 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import './Header.css'
 import SearchIcon from '@mui/icons-material/Search';
 import LanguageIcon from '@mui/icons-material/Language';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Avatar, Button } from '@mui/material';
+import { Avatar, Button, Card } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Company from "../../assets/afv.png"
+import { useParams } from "react-router-dom";
+import { getHotel } from '../../utils/api';
 
 function Header() {
   const navigate = useNavigate();
+  let { id } = useParams();
+  const [searchTerm, setSearchTerm] = useState("")
+  const [item, setItem] = useState({})
 
-  // const [data, setData] = useState();
-  // useEffect(() => {
-  //   handleTextSearch = (e) => {
-  //     const searchTerm = e.currentTarget.value;
-  //     axios.get("/posts").then((res) => {
-  //       if (res.data.success) {
-  //         this.filterContent(res.data.posts, searchTerm);
-  //       }
-  //     });
-  //   };
-  // }, []);
+  useEffect(() => {
+      getHotel(id).then((data) => {
+          console.log('ini dari backend',data)
+          setItem(data)
+      }).catch((err) => {
+          console.log('gagal bro',err)
+      })
+  }, [])
 
-  
-  
   return (
     <div className='header'>
       <Link to="/">
@@ -33,24 +33,24 @@ function Header() {
       </Link>
 
       <div className='header_center'>
-        <input 
-        type="search"
-        placeholder='search'
-        name='searchTerm'
-        // onChange={this.handleTextSearch}
-        
+        <input
+          type="search"
+          placeholder='search'
+          name='searchTerm'
+          onChange={event => {setSearchTerm(event.target.value)}}
         />
+        
         <SearchIcon />
       </div>
 
       <div className='header_right'>
-      <Link to="/Admin" style={{ textDecoration: "none" }}>
-              <div className="viewButton">Become a guest</div>
-            </Link>
+        <Link to="/Admin" style={{ textDecoration: "none" }}>
+          <div className="viewButton">Become a guest</div>
+        </Link>
         <LanguageIcon />
         <ExpandMoreIcon />
         <Button onClick={() => navigate('/Profile')}>
-        <Avatar />
+          <Avatar />
         </Button>
       </div>
     </div>
