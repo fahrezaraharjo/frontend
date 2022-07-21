@@ -4,15 +4,13 @@ import { DataGrid } from "@mui/x-data-grid";
 import { hotelColumns, hotelRows } from "../../../datatablesource";
 import { Link } from "react-router-dom";
 import { getHotels } from '../../../utils/api';
-import Modal from '../../modal edit/modal';
 import { useParams } from "react-router-dom";
 
 
 const Datatable = () => {
-  let { id } = useParams();
   const [openModal, setOpenModal] = useState(false);
   const [item, setItem] = useState({})
-
+  
   const [data, setData] = useState([]);
   useEffect(() => {
     getHotels().then(data => {
@@ -35,6 +33,7 @@ const Datatable = () => {
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
+  let { id } = useParams();
 
   const actionColumn = [
     {
@@ -55,17 +54,13 @@ const Datatable = () => {
             </div>
             <div
             
-              onClick={() => setOpenModal(true)} 
-              className='editButton'
+            onClick={() => setOpenModal(true)} 
+            className='editButton'
              
               >
               edit
             </div>
-            <Modal
-              data={params.row}
-              open={openModal}
-              onClose={() => setOpenModal(false)}
-            />
+           
           </div>
 
         );

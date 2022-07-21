@@ -99,7 +99,7 @@ export const userRows = [
 ];
 
 export const hotelColumns = [
-  { field: "id", headerName: "ID", width: 70 },
+  
   {
     field: "name",
     headerName: "Name",
@@ -121,18 +121,7 @@ export const hotelColumns = [
     headerName: "City",
     width: 100,
   },
-  {
-    field: "status",
-    headerName: "Status",
-    width: 160,
-    renderCell: (params) => {
-      return (
-        <div className={`cellWithStatus ${params.row.status}`}>
-          {params.row.status}
-        </div>
-      );
-    },
-  },
+  
 ];
 
 export const hotelRows = [

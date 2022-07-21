@@ -7,7 +7,6 @@
     z-index: 100;
     width: 100%;
     top: 0;
-    
     height: auto;
 }
 
@@ -17,24 +16,24 @@
     margin-left: 20px;
 }
 
+
 .header_center {
     display: flex;
     flex: 1;
     align-items: center;
     max-width: fit-content;
-    padding: 10px;
+    padding: 20px;
     height: 50px;
     border: 1px solid lightgray;
-    border-radius: 999px
+    border-radius: 999px;
+    position: relative;
 }
 
-.header_center > input {
-    border: none;
-    width: 250px;
-    padding: 10px;
-    outline: 0;
-    background-color: transparent;
+.header_center > Button {
+    color: black;
 }
+
+
 
 .header_right {
     display: flex;

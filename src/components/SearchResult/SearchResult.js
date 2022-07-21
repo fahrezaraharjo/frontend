@@ -14,10 +14,10 @@ function SearchResult({
 }) {
     return (
         <div className='searchResult'>
-            <img src={img} alt="" />
             <FavoriteBorderIcon classname="searchResult_heart" />
 
             <div className='searchResult_info'>
+            <img className='imgSearch' src={img} alt="" />
                 <div className='searchResult_infoTop'>
                     <p>{location}</p>
                     <h3>{title}</h3>

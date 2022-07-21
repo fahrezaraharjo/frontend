@@ -3,14 +3,15 @@
     border: 0px solid black;
     position: relative;
     border-radius: 10px;
-    box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.75);
-    transition: transform 100ms ease-in;
-
+    box-shadow: 0px 6px 18px -9px rgb(0 0 0 / 75%);
+    transition: transform 200ms ease-in;
     margin: 20px;
     padding: 20px;
     border-bottom: 1px solid transparent;
     cursor: pointer;
     background-color: transparent;
+    justify-content: center;
+    align-items: center;
 }
 
 .searchResult:hover {
@@ -19,11 +20,11 @@
     opacity: 0.8;
 }
 
-.searchResult > img {
-    height: 200px;
-    width: 350px;
+.imgSearch{
+    border: 0px solid black;
+    position: relative;
     border-radius: 10px;
-    overflow: hidden;
+    box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.75);
 }
 
 .searchResult_heart {
@@ -61,10 +62,11 @@
     align-items: center;
 }
 
-.searchResult_price > p {
+.searchResult_price > h2 {
     text-align: right;
     color: black;
 }
+
 
 .searchResult_price {
     bottom: 22px;

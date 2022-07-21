@@ -3,19 +3,19 @@ import './modal.css'
 const Modal = ({ open, onClose }) => {
   if (!open) return null;
   return (
-    <div onClick={onClose} className='overlay'>
+    <div onClick={onClose} className='overlay__payment'>
       <div
         onClick={(e) => {
           e.stopPropagation();
         }}
-        className='modalContainer'
+        className='modal__Container'
       >
         <img src="https://cdn.infobrand.id/images/img/posts/2018/05/17/begini-strategi-marketing-digital-bank-bca.png" alt='/' />
-        <div className='modalRight'>
+        <div className='modal__Right'>
           <p className='closeBtn' onClick={onClose}>
             X
           </p>
-          <div className='content'>
+          <div className='content__payment'>
             <p>BCA Virtual</p>
             <h1>Rp 9999999 </h1>
             <p>Kode Book</p>
