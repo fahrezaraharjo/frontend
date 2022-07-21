@@ -53,7 +53,7 @@ function Header() {
 
       <div className='header_right'>
         <Link to="/Admin" style={{ textDecoration: "none" }}>
-          <div className="viewButton">Become a guest</div>
+          <div className="viewButton h3"><h3>Become a guest</h3></div>
         </Link>
         <LanguageIcon />
         <ExpandMoreIcon />

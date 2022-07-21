@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 const Datatable = () => {
   const [openModal, setOpenModal] = useState(false);
   const [item, setItem] = useState({})
-  
+
   const [data, setData] = useState([]);
   useEffect(() => {
     getHotels().then(data => {
@@ -52,16 +52,12 @@ const Datatable = () => {
             >
               Delete
             </div>
-            <div
-            
-            onClick={() => setOpenModal(true)} 
-            className='editButton'
-             
-              >
+            <Link to="/Hotels/edit" className="link">
               edit
-            </div>
-           
+            </Link>
           </div>
+
+
 
         );
       },

@@ -1,5 +1,5 @@
 import React from 'react'
-import "./NewHotel.css";
+import "./EditHotel.css";
 import SideBar from '../../components/Admin/SideBar/SideBar';
 import NavBar from '../../components/Admin/Navbar/NavBar';
 import { useState } from "react";
@@ -51,7 +51,7 @@ const New = (inputs) => {
       <div className="newContainer">
         <NavBar />
         <div className="newtop">
-          <h1>Create NewHotel</h1>
+          <h1>Edit Hotel</h1>
         </div>
         <div className="newbottom">
           <div className="newleft">
@@ -90,7 +90,7 @@ const New = (inputs) => {
               <div className="mb-2">
                 <input
                   type="text"
-                  placeholder="Address"
+                  placeholder="Address" 
                   name="address"
                   onChange={(e) => handleChange(e)}
                 />
@@ -174,7 +174,7 @@ const New = (inputs) => {
 
 
 
-                <button type='submit' className="btn btn-success">Create New Hotels!</button>
+                <button type='submit' className="btn btn-success">Update Hotels!</button>
               </div>
             </form>
           </div>

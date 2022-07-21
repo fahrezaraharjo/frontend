@@ -13,6 +13,7 @@ import List from './pages/List/List';
 import ListHotel from './pages/List hotel/List';
 import New from './pages/New/New';
 import NewHotel from './pages/New hotel/NewHotel';
+import Edit from './pages/edit/EditHotel'
 import Singlehotel from './pages/hotels/Single';
 import {  userInputs, hotelInputs } from "./formSource";
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
@@ -52,6 +53,11 @@ function App() {
             <Route
               path="new"
               element={<NewHotel inputs={hotelInputs} title="Add New hotel" />
+              }
+            />
+              <Route
+              path="edit"
+              element={<Edit inputs={hotelInputs} title="edit" />
               }
             />
 

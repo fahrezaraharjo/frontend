@@ -7,6 +7,7 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
+    color: lightgray;
 }
 
 :root {
@@ -32,8 +33,8 @@ html {
 
 body {
     
-    background-image: url(https://www.sansiri.com/uploads/gallery/2022/04/xt-huaikhwang/650_xt-huaikhwang-condo-gallery-02.jpg) ;
-    backdrop-filter: blur(10px);
+    background-image: url(https://img.buzzfeed.com/buzzfeed-static/static/2017-10/26/14/asset/buzzfeed-prod-fastlane-01/sub-buzz-15099-1509041818-1.jpg?downsize=900:*&output-format=auto&output-quality=auto) ;
+    backdrop-filter: blur(30px);
     
 }
 
@@ -50,6 +51,7 @@ h3,
 h4,
 h5 {
     font-weight: 500;
+    color: lightgrey
 }
 
 h1 {
@@ -113,4 +115,9 @@ img {
 
 :link {
     color: #1f1f38;
+}
+
+
+::placeholder {
+    color: rgb(251, 251, 251);
 }

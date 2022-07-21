@@ -1,7 +1,8 @@
 .home_section {
     display: flex;
     padding: 30px;
-    background-image: url(https://p4.wallpaperbetter.com/wallpaper/985/136/886/building-lights-illustration-romain-trystram-wallpaper-preview.jpg);
+    background-image: url("https://i.pinimg.com/originals/7d/d2/75/7dd275e4b2888371a12e040b9a4d101e.jpg")  ;
+    
     flex-direction: row;
     align-content: center;
     align-items: center;

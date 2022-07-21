@@ -53,9 +53,11 @@
     flex-wrap: wrap;
 }
 
-.card_info>h2 {
+ h2 h4 h3 {
     font-size: 18px;
     font-weight: 600;
+    color: black;
+
 }
 
 .card_info>h4 {
@@ -66,5 +68,5 @@
 }
 
 .link {
-    color: whitesmoke
+    color: rgb(5, 4, 4)
 }

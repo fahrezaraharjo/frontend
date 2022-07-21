@@ -46,3 +46,7 @@
 .header_right > Button {
     color: black;
 }
+
+.header_right > h3 {
+    color: lightgray;
+}

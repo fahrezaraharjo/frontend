@@ -21,7 +21,7 @@
     gap: 40px;
 }
 
-.new > h1 {
+.newtop > h1 {
     color: lightgray;
     font-size: 20px;
 }
@@ -31,6 +31,9 @@
     text-align: center;
 }
 
+input:placeholder-shown {
+    color: lightgray;
+}
 
 .new > img {
     width: 100px;
