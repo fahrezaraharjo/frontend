@@ -56,7 +56,7 @@ function App() {
               }
             />
               <Route
-              path="edit"
+              path="edit/:id"
               element={<Edit inputs={hotelInputs} title="edit" />
               }
             />

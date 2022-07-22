@@ -25,7 +25,6 @@ function Header() {
 
   const submitForm = (event) => {
     event.preventDefault()
-    console.log(searchTerm, "ini searchTerm")
     navigate('/search', { state: { title: searchTerm ,cheapestPrice: searchTerm, rating: searchTerm, photos: searchTerm, city: searchTerm } })
   }
 

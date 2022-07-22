@@ -70,7 +70,7 @@ const New = (inputs) => {
 
               </div>
               <div className="mb-2">
-                <input
+                <input className='input_newhotel'
                   type="text"
                   placeholder="Name Hotel"
                   name="name"

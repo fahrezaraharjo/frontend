@@ -14,10 +14,8 @@ function Details() {
 
     useEffect(() => {
         getHotel(id).then((data) => {
-            console.log('ini dari backend',data)
             setItem(data)
         }).catch((err) => {
-            console.log('gagal bro',err)
         })
     }, [])
 

@@ -28,8 +28,8 @@ export const getHotels = (params) =>
         console.log(err)
     })
 
-    export const updateHotel = (value) =>
-    request.post('Hotels',value).then((Response) => {
+    export const updateHotel = (id, value) =>
+    request.put(`Hotels/${id}`,value).then((Response) => {
         return Response.data
     }).catch(err => {
         console.log(err)

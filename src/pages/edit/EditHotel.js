@@ -1,35 +1,49 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import "./EditHotel.css";
 import SideBar from '../../components/Admin/SideBar/SideBar';
 import NavBar from '../../components/Admin/Navbar/NavBar';
-import { useState } from "react";
-import { addHotel } from '../../utils/api';
+import { getHotel, updateHotel } from '../../utils/api';
+import { useParams } from "react-router-dom";
 
-const New = (inputs) => {
+
+const Edit = () => {
+
+  let { id } = useParams();
+
   const [file, setFile] = useState("");
   const [values, setValues] = useState({
+
     name: "",
     type: "",
     city: "",
     address: "",
     rating: "",
-    // rooms: "",
     featured: "",
     desc: "",
     cheapestPrice: "",
-    file: "",
     distance: "",
     title: "",
+    photos: ""
   });
   const handleChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
   };
+  useEffect(() => {
+    getHotel(id).then((data) => {
+      setValues(data)
+    }).catch((err) => {
+    })
+  }, [])
+
+
+
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    const { name, type, city, address, rating, featured, desc, cheapestPrice, file, distance, title } = values;
-    const { data } = addHotel({
+console.log(values, "ieu submit")
+    const { _id, name, type, city, address, rating, featured, desc, cheapestPrice, file, distance, title } = values;
+    const { data } = updateHotel(_id,{
       name,
       type,
       city,
@@ -38,10 +52,11 @@ const New = (inputs) => {
       featured,
       desc,
       cheapestPrice,
-      file,
       distance,
       title
     });
+
+
 
   };
 
@@ -74,6 +89,7 @@ const New = (inputs) => {
                   type="text"
                   placeholder="Name Hotel"
                   name="name"
+                  value={values.name}
                   onChange={(e) => handleChange(e)}
                 />
 
@@ -83,6 +99,7 @@ const New = (inputs) => {
                   type="text"
                   placeholder="Type"
                   name="type"
+                  value={values.type}
                   onChange={(e) => handleChange(e)}
                 />
 
@@ -90,8 +107,10 @@ const New = (inputs) => {
               <div className="mb-2">
                 <input
                   type="text"
-                  placeholder="Address" 
+                  placeholder="Address"
                   name="address"
+                  value={values.address}
+
                   onChange={(e) => handleChange(e)}
                 />
 
@@ -101,6 +120,8 @@ const New = (inputs) => {
                   type="text"
                   placeholder="Rating"
                   name="rating"
+                  value={values.rating}
+
                   onChange={(e) => handleChange(e)}
                 />
 
@@ -111,6 +132,8 @@ const New = (inputs) => {
                   type="text"
                   placeholder="Featured"
                   name="featured"
+                  value={values.featured}
+
                   onChange={(e) => handleChange(e)}
                 />
 
@@ -120,6 +143,8 @@ const New = (inputs) => {
                   type="text"
                   placeholder="Description"
                   name="desc"
+                  value={values.desc}
+
                   onChange={(e) => handleChange(e)}
                 />
 
@@ -129,6 +154,8 @@ const New = (inputs) => {
                   type="text"
                   placeholder="Cheapest Price"
                   name="cheapestPrice"
+                  value={values.cheapestPrice}
+
                   onChange={(e) => handleChange(e)}
                 />
 
@@ -138,6 +165,8 @@ const New = (inputs) => {
                     type="text"
                     placeholder="Distance"
                     name="distance"
+                    value={values.distance}
+
                     onChange={(e) => handleChange(e)}
                   />
 
@@ -147,6 +176,8 @@ const New = (inputs) => {
                     type="text"
                     placeholder="Title"
                     name="title"
+                    value={values.title}
+
                     onChange={(e) => handleChange(e)}
                   />
 
@@ -157,6 +188,8 @@ const New = (inputs) => {
                     type="text"
                     placeholder="City"
                     name="city"
+                    value={values.city}
+
                     onChange={(e) => handleChange(e)}
                   />
 
@@ -184,4 +217,4 @@ const New = (inputs) => {
   );
 };
 
-export default New;
+export default Edit;

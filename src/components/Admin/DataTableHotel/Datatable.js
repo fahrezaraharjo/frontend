@@ -52,7 +52,7 @@ const Datatable = () => {
             >
               Delete
             </div>
-            <Link to="/Hotels/edit" className="link">
+            <Link to={`/Hotels/edit/${params.id}`} className="link">
               edit
             </Link>
           </div>
